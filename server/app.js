@@ -87,7 +87,7 @@ app.use('/api', surfBreakRoutes);
 //For Deployment
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "../client/build/index.html");
+  res.sendFile(__dirname + "/../client/build/index.html");
 });
 
 
