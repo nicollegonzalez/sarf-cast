@@ -73,7 +73,7 @@ app.use(passport.session());
 app.use(cors({
   credentials: true,
   origin: ['http://localhost:3000'
-  // , 'https://blah.herokuapp.com'
+  , 'https://sarf-cast.herokuapp.com'
   ]
 }));
 
