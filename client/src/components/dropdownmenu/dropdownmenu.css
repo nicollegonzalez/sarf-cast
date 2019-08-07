@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .dd-header-title{
@@ -27,5 +26,11 @@ ul.dd-list{
   border-radius: 5px;
   list-style-type: none;
   padding: 0;
+}
+
+li.dd-list-item{
+  width: 300px;
+  text-align: center;
+
 }
 

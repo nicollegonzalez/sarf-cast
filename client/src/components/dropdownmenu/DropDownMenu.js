@@ -30,9 +30,7 @@ class DropDownMenu extends React.Component{
     }))
   }
 
-  getTheCounty = () =>{
-    this.setState({formShowing: !this.state.formShowing})
-  }
+
 
   render(){
     const{dropDownCounties} = this.props
@@ -49,12 +47,12 @@ class DropDownMenu extends React.Component{
           
       </div>
       {listOpen && <ul className="dd-list">
-         {dropDownCounties.map((eachCounty,i) => (
+        {dropDownCounties.map((eachCounty,i) => (
           //  <li className="dd-list-item" key={item.id}>{item.title}</li>
-          <li className="dd-list-item" key={i} onClick = {this.getTheCounty}>{eachCounty}</li>
+          <li className="dd-list-item" key={i} onClick = {this.dataFromChild(eachCounty)}>{eachCounty}</li>
           ))}
       </ul>}
-      </div>
+      </div>  
     )
   }
 }
