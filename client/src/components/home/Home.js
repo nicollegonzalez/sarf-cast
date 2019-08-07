@@ -1,0 +1,45 @@
+import React, { Component } from 'react';
+import "./home.css"
+import DropDownMenu from '../dropdownmenu/DropDownMenu'
+import axios from 'axios';
+
+class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = { 
+      //ENTER STUFF HERE
+    };
+
+  }
+
+  // MAYBE A FUNCTION HERE
+
+
+  render(){
+    return(
+      <div>
+        <h1>Welcome to the Home Page</h1>
+
+        <div>
+        <DropDownMenu
+          title="Select County"
+          dropDownCounties={this.props.dropDownCounties}
+          dataFromChild = {this.dataFromChild} 
+        />
+        </div>
+
+
+
+
+        <div className="ocean">
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
+
+
+      </div>
+    )
+  }
+}
+
+export default Home;

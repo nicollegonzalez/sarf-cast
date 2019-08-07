@@ -1,0 +1,31 @@
+.dd-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.dd-header-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+ul.dd-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border-left:    2px solid #ddd;
+  border-right:  2px solid #ddd; 
+  border-bottom: 2px solid #ddd;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
+
