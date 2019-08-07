@@ -72,9 +72,7 @@ app.use(passport.session());
 // CORS SETTINGS TO ALLOW CROSS-ORIGIN INTERACTION:
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000'
-  , 'https://sarf-cast.herokuapp.com'
-  ]
+  origin: ['http://localhost:3000']
 }));
 
 // ROUTES MIDDLEWARE STARTS HERE:
