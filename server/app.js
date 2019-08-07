@@ -18,7 +18,8 @@ require('./config/passport');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/sarf-cast-api', {useMongoClient: true})
+  // .connect('mongodb://localhost/sarf-cast-api', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -78,12 +79,18 @@ app.use(cors({
 
 // ROUTES MIDDLEWARE STARTS HERE:
 
-
 const userRoutes = require('./routes/user-routes');
 app.use('/api/auth', userRoutes);
 
 const surfBreakRoutes = require('./routes/surf-break-routes');
 app.use('/api', surfBreakRoutes); 
+
+
+//For Deployment
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 
 module.exports = app;

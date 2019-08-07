@@ -26,7 +26,7 @@ router.get('/developer', bodyParser, (req, res, next) => {
       let allGetForecastAxiosArr = [];
 
       allSpotIdsArr.forEach((eachSpotId)=>{
-        let urlStr = `http://api.spitcast.com/api/spot/forecast/${eachSpotId}/`
+        let urlStr = `${process.env.REACT_APP_BASE}/spot/forecast/${eachSpotId}/`
         allGetForecastAxiosArr.push(axios.get(urlStr));
       })
 

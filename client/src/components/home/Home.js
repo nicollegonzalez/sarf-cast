@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./home.css"
 import DropDownMenu from '../dropdownmenu/DropDownMenu'
-import axios from 'axios';
+// import axios from 'axios';
 
 class Home extends Component {
   constructor(props){
