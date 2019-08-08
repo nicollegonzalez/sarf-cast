@@ -17,27 +17,26 @@ class Home extends Component {
 
   render(){
     return(
-      <div>
-        <h1>Welcome to the Home Page</h1>
-
+      <div className="home-component">
         <div>
-        <DropDownMenu
-          title="Select County"
-          dropDownCounties={this.props.dropDownCounties}
-          dataFromChild = {this.dataFromChild} 
-        />
+        {/* <h1>Welcome to the Home Page</h1> */}
+
+          <div>
+            <DropDownMenu
+              title="Select County"
+              dropDownCounties={this.props.dropDownCounties}
+              dataFromChild = {this.props.dataFromChild} 
+            />
+          </div>
+
+
+          <div className="ocean">
+            <div className="wave"></div>
+            <div className="wave"></div>
+          </div>
         </div>
-
-
-
-
-        <div className="ocean">
-          <div className="wave"></div>
-          <div className="wave"></div>
-        </div>
-
-
       </div>
+      
     )
   }
 }

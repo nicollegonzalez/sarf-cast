@@ -1,5 +1,6 @@
 import React from 'react';
 import './dropdownmenu.css'
+import {Link} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
@@ -30,11 +31,22 @@ class DropDownMenu extends React.Component{
     }))
   }
 
+  handleCountyNameClick(e){
+    console.log(e.target.value);
+    console.log(this.props)
+    // this.props.dataFromChild(e.target.value);
+  }
+
+  
+
 
 
   render(){
-    const{dropDownCounties} = this.props
+    // const{dropDownCounties} = this.props
+    const dropDownCounties = this.props.dropDownCounties
     const{listOpen, headerTitle} = this.state
+    // console.log(this.props.dropDownCounties);
+    // console.table(this.props.dropDownCounties);
     return(
       <div className="dd-wrapper">
         <div className="dd-header" onClick={() => this.toggleList()}>
@@ -48,8 +60,11 @@ class DropDownMenu extends React.Component{
       </div>
       {listOpen && <ul className="dd-list">
         {dropDownCounties.map((eachCounty,i) => (
-          //  <li className="dd-list-item" key={item.id}>{item.title}</li>
-          <li className="dd-list-item" key={i} onClick = {this.dataFromChild(eachCounty)}>{eachCounty}</li>
+          <Link to={`/region/${eachCounty}`} onClick = {this.handleCountyNameClick} key={i} className="dropdown-link">
+            <li className="dd-list-item">
+              {eachCounty}
+            </li>
+          </Link>
           ))}
       </ul>}
       </div>  

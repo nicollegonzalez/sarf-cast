@@ -34,7 +34,7 @@ class App extends React.Component {
       // headerTitle: "Select location"
 
       // Passed down to County Component
-      theCounty: "Monterey",
+      theCounty: "",
       validSurfBreaks: [],
       // Passed down to SurfBreak Component
       theSurfBreak: "Carmel Beach",
@@ -172,7 +172,7 @@ render(){
            />} 
           />
 
-<Route exact path={`/region/${this.state.theCounty}/:spotID`}
+          <Route exact path={`/region/${this.state.theCounty}/:spotID`}
           render ={(props)=> <SurfBreak
              {...props} 
              allRegionalSurfBreaks ={ this.state.validSurfBreaks}

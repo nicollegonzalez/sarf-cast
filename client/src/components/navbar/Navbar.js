@@ -14,17 +14,17 @@ function Navbar(props){
         .then(()=>{
             props.getUser();
         })
-
     }
 
 
 return(
     // <nav className="navbar navbar-expand navbar-dark bg-primary">
     <nav className="navbar navbar-expand navbar-custom bg-custom py-0">
-        <a className="navbar-brand" href="#">
+        <NavLink to="/" className="navbar-brand" href="#">
             <img src="/images/sarfcastlogo.png" alt="sarfcast brand logo" height="42" width="42"/>
+            {/* <img src="/../client/build/index.html" alt="sarfcast brand logo" height="42" width="42"/> */}
             SarfCast
-        </a>
+        </NavLink>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
@@ -32,10 +32,10 @@ return(
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    <NavLink to="/" className="nav-link" href="#">Home <span className="sr-only">(current)</span></NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Profile</a>
+                    <NavLink to="/" className="nav-link" href="#">Profile</NavLink>
                 </li>
             </ul>
         </div>

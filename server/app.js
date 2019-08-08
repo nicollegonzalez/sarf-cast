@@ -4,7 +4,7 @@ const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
+// const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
@@ -85,9 +85,19 @@ app.use('/api', surfBreakRoutes);
 
 
 //For Deployment
+const root = path.join(__dirname + "/../client/build");
+
+app.use(express.static(root));
+
 app.use((req, res, next) => {
-  // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/../client/build/index.html");
+    if (
+        req.method === 'GET' &&
+        req.accepts('html') &&
+        !req.is('json') &&
+        !req.path.includes('.')
+    ) {
+        res.sendFile('index.html', { root });
+    } else next();
 });
 
 
