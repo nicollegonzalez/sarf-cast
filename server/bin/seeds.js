@@ -3,10 +3,11 @@ const County      = require('../models/County');
 const SurfBreak   = require('../models/SurfBreak');
 
 
-// const dbName = 'authentication-app-backend';
+// const dbName = 'sarf-cast-api';
 // mongoose.connect(`mongodb://localhost/${dbName}`);
 mongoose
-  .connect('mongodb://localhost/sarf-cast-api', {useNewUrlParser: true})
+  // .connect('mongodb://localhost/sarf-cast-api', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
