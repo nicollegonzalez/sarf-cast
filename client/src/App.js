@@ -12,6 +12,7 @@ import Navbar from './components/navbar/Navbar.js'
 import Home from './components/home/Home'
 import County from './components/county/County'
 import SurfBreak from './components/surfbreak/SurfBreak'
+import Profile from './components/profile/Profile'
 
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -24,6 +25,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = { 
+      //For user stuff
       currentlyLoggedIn: null,
       signupShowing: false,
       loginShowing: false,
@@ -65,8 +67,10 @@ toggleForm = (whichForm) =>{
 
   if(whichForm === "signup"){
     theForm = 'signupShowing'
-  } else {
+  } else if(whichForm === "login"){
     theForm = 'loginShowing'
+  } else if(whichForm === "profile"){
+    theForm = 'profileShowing'
   }
 
   this.setState({[theForm]: !this.state[theForm]})
@@ -74,13 +78,18 @@ toggleForm = (whichForm) =>{
 
 
 getAllRegionalSurfBreaks = () => {
+  console.log("show me the county >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", this.state);
   axios.get(`${process.env.REACT_APP_BASE}/region/${this.state.theCounty}`)
   .then((theRegionalSurfBreaks)=>{
-    console.log("*************",theRegionalSurfBreaks)
-    this.setState({
-      validSurfBreaks: theRegionalSurfBreaks.data,
-      ready: true,
-    })
+    console.log("*************", typeof(theRegionalSurfBreaks.data), theRegionalSurfBreaks.data)
+    
+    if(typeof(theRegionalSurfBreaks.data) === "object") {
+      console.log("the if condition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ", typeof(theRegionalSurfBreaks.data), this.state)
+      this.setState({
+        validSurfBreaks: theRegionalSurfBreaks.data
+      })
+    } 
+
     console.log(this.state.validSurfBreaks);
   })
   .catch((err)=>{
@@ -88,28 +97,12 @@ getAllRegionalSurfBreaks = () => {
   })
 }
 
-// showDropDown = () => {
-//   // return this.state.dropDownCounties.map((eachCounty, i)=>{
-//     return <DropDownMenu key={i}
-//      title="Select County"
-//      list={this.state.dropDownCounties}
-//     />
-//   // })
-// }
 
-// toggleSelectedCounty(id, key){
-//   let temp = this.state[key]
-//   temp[id].selected = !temp[id].selected
-//   this.setState({
-//     [key]: temp
-//   })
-// }
-
-dataFromChild = (data) => {
-  // console.log(data);
+dataFromChild = async (data) => {
+  console.log(data);
   let  theSelectedCounty= data;
 
-  this.setState({theCounty: theSelectedCounty})
+  await this.setState({theCounty: theSelectedCounty})
 
   this.getAllRegionalSurfBreaks()
 
@@ -127,7 +120,7 @@ dataFromChild = (data) => {
 
 render(){
 
-  console.log('This is my state',this.state);
+  console.log('This is my state :::::::::::::::::::::::::::::::::::::: ',this.state);
 
 
     return (
@@ -150,6 +143,12 @@ render(){
 
       {this.state.loginShowing && 
         <Login getUser = {this.getCurrentlyLoggedInUser}
+        toggleForm = {this.toggleForm}
+        />
+      }
+
+      {this.state.profileShowing && 
+        <Profile getUser = {this.getCurrentlyLoggedInUser}
         toggleForm = {this.toggleForm}
         />
       }
