@@ -86,8 +86,6 @@ app.use('/api', surfBreakRoutes);
 
 //For Deployment
 
-app.use(express.static(root));
-
 app.use((req, res, next) => {
   if (
     req.method === 'GET' &&
@@ -100,5 +98,6 @@ app.use((req, res, next) => {
   });
   
   const root = path.join(__dirname + "/../client/build");
+  app.use(express.static(root));
 
 module.exports = app;
