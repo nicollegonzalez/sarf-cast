@@ -19,7 +19,7 @@ class Home extends Component {
     return(
       <div className="home-component">
         <div>
-        {/* <h1>Welcome to the Home Page</h1> */}
+
 
           <div>
             <DropDownMenu
