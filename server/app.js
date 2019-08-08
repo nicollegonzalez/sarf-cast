@@ -98,7 +98,7 @@ app.use((req, res, next) => {
     } else next();
   });
   
-  const root = path.join(__dirname + "/./public/build");
+  const root = path.join(__dirname + "/../client/build/index.html");
   app.use(express.static(root));
 
 module.exports = app;
