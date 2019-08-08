@@ -16,6 +16,8 @@ class Home extends Component {
 
 
   render(){
+    console.log("history---- ",this.props);
+    
     return(
       <div className="home-component">
         <div>
@@ -23,8 +25,10 @@ class Home extends Component {
 
           <div>
             <DropDownMenu
+              {...this.props}
               title="Select County"
               dropDownCounties={this.props.dropDownCounties}
+              getAllRegionalSurfBreaks={this.props.getAllRegionalSurfBreaks}
               dataFromChild = {this.props.dataFromChild} 
             />
           </div>

@@ -31,10 +31,12 @@ class DropDownMenu extends React.Component{
     }))
   }
 
-  handleCountyNameClick(e){
-    console.log(e.target.value);
-    console.log(this.props)
-    // this.props.dataFromChild(e.target.value);
+  handleCountyNameClick(e, county){
+    console.log("+_+_+_+_+_+_+_",e.target.innerHTML);
+    console.log("HEYYYYYYYYYYY",this.props)
+    this.props.dataFromChild(e.target.innerHTML);
+
+    this.props.history.push(`/region/${county}`)
   }
 
   
@@ -60,11 +62,9 @@ class DropDownMenu extends React.Component{
       </div>
       {listOpen && <ul className="dd-list">
         {dropDownCounties.map((eachCounty,i) => (
-          <Link to={`/region/${eachCounty}`} onClick = {this.handleCountyNameClick} key={i} className="dropdown-link">
-            <li className="dd-list-item">
+            <li key={i} className="dd-list-item dropdown-link" onClick = {e => this.handleCountyNameClick(e, eachCounty)}>
               {eachCounty}
             </li>
-          </Link>
           ))}
       </ul>}
       </div>  

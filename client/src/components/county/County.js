@@ -6,20 +6,21 @@ import { Link } from 'react-router-dom'
 class County extends Component {
 
   displayAllRegionalSurfBreaks () {
-    return this.props.allRegionalSurfBreaks.map((eachValidSurfBreak)=>{
-        return(
-          <div key={eachValidSurfBreak._id}>
-            {/* <div>
-               {eachValidSurfBreak.spot_name}
-            </div> */}
-            <Link to = {`/region/${this.props.theCounty}/${eachValidSurfBreak.spot_id}`}>
-               {eachValidSurfBreak.spot_name}
-            </Link>
+    console.log("HHmhmhmhmh",this.props.allRegionalSurfBreaks)
+    // return this.props.allRegionalSurfBreaks.map((eachValidSurfBreak)=>{
+    //     return(
+    //       <div key={eachValidSurfBreak._id}>
+    //         {/* <div>
+    //            {eachValidSurfBreak.spot_name}
+    //         </div> */}
+    //         <Link to = {`/region/${this.props.theCounty}/${eachValidSurfBreak.spot_id}`}>
+    //            {eachValidSurfBreak.spot_name}
+    //         </Link>
 
 
-          </div> 
-      )
-    })
+    //       </div> 
+    //   )
+    // })
   }
 
 

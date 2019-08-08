@@ -99,7 +99,8 @@ router.get('/region/:region', (req, res, next) => {
       })
       
 
-  
+      console.log("all the regions >>>>>>>>>>>>>> ", allRegionalSurfBreaks);
+      
       // res.json({theCounty: theCounty})
       res.json(allRegionalSurfBreaks); // [{},{},{}]This the format I want sent to react app
       // res.json({theRegionalSurfBreaks: allRegionalSurfBreaks}) //{ "key": [{},{},{}]}

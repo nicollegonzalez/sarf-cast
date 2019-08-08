@@ -76,11 +76,15 @@ toggleForm = (whichForm) =>{
 getAllRegionalSurfBreaks = () => {
   axios.get(`${process.env.REACT_APP_BASE}/region/${this.state.theCounty}`)
   .then((theRegionalSurfBreaks)=>{
+    console.log("*************",theRegionalSurfBreaks)
     this.setState({
       validSurfBreaks: theRegionalSurfBreaks.data,
       ready: true,
     })
     console.log(this.state.validSurfBreaks);
+  })
+  .catch((err)=>{
+    console.log(err);
   })
 }
 
@@ -106,6 +110,10 @@ dataFromChild = (data) => {
   let  theSelectedCounty= data;
 
   this.setState({theCounty: theSelectedCounty})
+
+  this.getAllRegionalSurfBreaks()
+
+
 }
 
 
@@ -157,6 +165,7 @@ render(){
              allTheCounties = {this.state.allTheCounties}
              dropDownCounties = {this.state.dropDownCounties}
              ready = {this.state.ready}
+             getAllRegionalSurfBreaks = {this.getAllRegionalSurfBreaks}
              dataFromChild = {this.dataFromChild} 
            />} 
           />
