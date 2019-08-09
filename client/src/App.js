@@ -30,6 +30,7 @@ class App extends React.Component {
       currentlyLoggedIn: null,
       signupShowing: false,
       loginShowing: false,
+      profileShowing: false,
       //For Search Bar
       allTheCounties: ["Marin", "San Francisco", "Monterey", "Santa Cruz","San Mateo","Los Angeles","San Luis Obispo","Santa Barbara","San Diego","Orange County","Ventura"],
       dropDownCounties: ["Marin", "San Francisco", "Monterey", "Santa Cruz","San Mateo","Los Angeles","San Luis Obispo","Santa Barbara","San Diego","Orange County","Ventura"],
@@ -51,13 +52,16 @@ class App extends React.Component {
   }
 
   goHome = () =>{
-    axios.get(`http://localhost:5000`, {withCredentials: true})
-    .then((response)=>{
-      this.setState({currentlyLoggedIn: null})
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
+    // axios.get(`http://localhost:5000`, {withCredentials: true})
+    // .then((res)=>{
+    //   this.setState({currentlyLoggedIn: null})
+    // })
+    // .catch((err)=>{
+    //   console.log(err)
+    // })
+
+    this.setState({currentlyLoggedIn: null, profileShowing: false})
+
       
       
   }

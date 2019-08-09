@@ -10,6 +10,7 @@ class Profile extends Component {
 
     axios.delete(`http://localhost:5000/api/auth/${theUser}`)
     .then(()=>{
+        this.props.toggleForm('profile');
         this.props.goHome();
     })
     .catch((err)=>{
