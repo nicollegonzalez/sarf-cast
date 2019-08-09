@@ -10,7 +10,7 @@ class Profile extends Component {
 
     axios.delete(`http://localhost:5000/api/auth/${theUser}`)
     .then(()=>{
-        // this.props.goHome();
+        this.props.goHome();
     })
     .catch((err)=>{
         console.log(err)
@@ -21,11 +21,6 @@ class Profile extends Component {
 
   render(){
 
-
-    // console.log(this.props)
-    // if(this.props.getUser()){
-    // const theUser = this.props.currentlyLoggedIn;
-    // console.log("<><><><><><><><><",theUser);
     if(this.props.ready){
       const theUser = this.props.theUser;
       console.log("<><><><><><><><><",theUser);
