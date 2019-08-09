@@ -13,6 +13,12 @@ side.*/
 router.post('/signup', (req, res, next) => {
     const theUsername = req.body.username;
     const thePassword = req.body.password;
+    const theStance= req.body.stanceInput;
+    const theFavoriteSurfSpot= req.body.favoriteSurfSpotInput;
+    const theFavoriteSurfBoardShape= req.body.favoriteSurfBoardShapeInput;
+    const theFavoriteSurfer= req.body.favoriteSurferInput;
+
+
   
     if (!theUsername || !thePassword) {
       res.status(400).json({ message: 'Provide username and password' });
@@ -42,10 +48,17 @@ router.post('/signup', (req, res, next) => {
   
         const theNewUser = new User({
             username:theUsername,
-            password: hashedPassword
+            password: hashedPassword,
+            stanceInput: theStance,
+            favoriteSurfSpotInput: theFavoriteSurfSpot,
+            favoriteSurfBoardShapeInput: theFavoriteSurfBoardShape,
+            favoriteSurferInput: theFavoriteSurfer
+
         });
   
         theNewUser.save(err => {
+            console.log('heres the user')
+            console.log(req.user)
             if (err) {
                 res.status(400).json({ message: 'Saving user to database went wrong.' });
                 return;
@@ -124,6 +137,37 @@ router.get('/getcurrentuser', (req, res, next) => {
     res.status(403).json({ message: 'Unauthorized' });
 });
 //End of getcurrentuser get route
+
+
+//Start Update user
+router.post('/update/:theUser',(req, res, next)=>{
+    User.findOneAndUpdate({username: req.params.theUser}, {
+        stanceInput: req.body.theStance,
+        favoriteSurfSpotInput: req.body.theFavoriteSurfSpot,
+        favoriteSurfBoardShapeInput: req.body.theFavoriteSurfSurfBoardShape,
+        favoriteSurferInput: req.body.theFavoriteSurferInput
+    })
+    .then((response)=>{
+        res.json(response)
+    })
+    .catch((err)=>{
+        console.log(err)
+        res.json(err)
+    })
+
+});
+
+//Start Delete user
+router.delete('/:theUser', (req, res, next)=>{
+
+    User.deleteOne({username: req.params.theUser})
+    .then((response)=>{
+        res.json(response)
+    })
+    .catch((err)=>{
+        res.json(err)
+    })
+})
 
 
 

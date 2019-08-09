@@ -13,6 +13,7 @@ import Home from './components/home/Home'
 import County from './components/county/County'
 import SurfBreak from './components/surfbreak/SurfBreak'
 import Profile from './components/profile/Profile'
+import EditProfile from './components/editprofile/EditProfile'
 
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -39,7 +40,7 @@ class App extends React.Component {
       theCounty: "",
       validSurfBreaks: [],
       // Passed down to SurfBreak Component
-      theSurfBreak: "Carmel Beach",
+      theSurfBreak: "",
       //To handle loading
       ready: false,
 
@@ -49,11 +50,26 @@ class App extends React.Component {
   
   }
 
+  goHome = () =>{
+    axios.get(`http://localhost:5000`, {withCredentials: true})
+    .then((response)=>{
+      this.setState({currentlyLoggedIn: null})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+      
+      
+  }
+    
+
 
 getCurrentlyLoggedInUser = () =>{
   this.service.currentUser()
   .then((theUser)=>{
-    this.setState({currentlyLoggedIn: theUser})
+    console.log(theUser);
+    this.setState({currentlyLoggedIn: theUser, ready: true})
+
   })
   .catch(()=>{
     this.setState({currentlyLoggedIn: null})
@@ -81,12 +97,13 @@ getAllRegionalSurfBreaks = () => {
   console.log("show me the county >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", this.state);
   axios.get(`${process.env.REACT_APP_BASE}/region/${this.state.theCounty}`)
   .then((theRegionalSurfBreaks)=>{
-    console.log("*************", typeof(theRegionalSurfBreaks.data), theRegionalSurfBreaks.data)
+    console.log("*************", typeof(theRegionalSurfBreaks.data))
     
     if(typeof(theRegionalSurfBreaks.data) === "object") {
       console.log("the if condition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ", typeof(theRegionalSurfBreaks.data), this.state)
       this.setState({
-        validSurfBreaks: theRegionalSurfBreaks.data
+        validSurfBreaks: theRegionalSurfBreaks.data,
+        // ready: true,
       })
     } 
 
@@ -120,6 +137,8 @@ dataFromChild = async (data) => {
 
 render(){
 
+
+
   console.log('This is my state :::::::::::::::::::::::::::::::::::::: ',this.state);
 
 
@@ -148,9 +167,19 @@ render(){
       }
 
       {this.state.profileShowing && 
-        <Profile getUser = {this.getCurrentlyLoggedInUser}
+        <Profile theUser = {this.state.currentlyLoggedIn}
         toggleForm = {this.toggleForm}
+        goHome = {this.goHome}
+        ready = {this.state.ready}
         />
+        // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
+        // toggleForm = {this.toggleForm}
+        // currentlyLoggedIn = {this.state.currentlyLoggedIn}
+        // />
+        // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
+        // toggleForm = {this.toggleForm}
+        // currentlyLoggedIn = {this.state.currentlyLoggedIn}
+        // />
       }
 
 <Switch>

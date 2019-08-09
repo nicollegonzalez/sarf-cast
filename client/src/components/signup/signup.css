@@ -1,0 +1,11 @@
+.signup-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signup-container .btn-custom{
+  border-color: black;
+  color: black;
+}

@@ -28,14 +28,19 @@ class County extends Component {
 
   render() {
     console.log("the county props. . . . . . . .. ... . . . . . . . . ..  ", this.props)
+    
+    if(this.props.theCounty && this.props.allRegionalSurfBreaks)
     return (
       <div>
+        {/* <h1>All The SurfBreaks for {this.props.theCounty}:</h1> */}
         <h1>All The SurfBreaks for {this.props.theCounty}:</h1>
         
         {this.displayAllRegionalSurfBreaks()}
   
       </div>
-    );
+    )
+    else 
+    return(<h1>loading...</h1>)
   }
 }
 
