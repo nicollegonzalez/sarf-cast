@@ -16,7 +16,7 @@ class Home extends Component {
 
 
   render(){
-    console.log("history---- ",this.props);
+    // console.log("history---- ",this.props);
     
     return(
       <div className="home-component">

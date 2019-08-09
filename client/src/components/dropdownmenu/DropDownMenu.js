@@ -1,6 +1,6 @@
 import React from 'react';
 import './dropdownmenu.css'
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
@@ -32,8 +32,8 @@ class DropDownMenu extends React.Component{
   }
 
   handleCountyNameClick(e, county){
-    console.log("+_+_+_+_+_+_+_",e.target.innerHTML);
-    console.log("HEYYYYYYYYYYY",this.props)
+    // console.log("+_+_+_+_+_+_+_",e.target.innerHTML);
+    // console.log("HEYYYYYYYYYYY",this.props)
     this.props.dataFromChild(e.target.innerHTML);
 
     this.props.history.push(`/region/${county}`)

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 class County extends Component {
 
   displayAllRegionalSurfBreaks () {
-    console.log("theeeeesee  are the props ----------- ", this.props);
-    console.log("HHmhmhmhmh",this.props.allRegionalSurfBreaks)
+    // console.log("theeeeesee  are the props ----------- ", this.props);
+    // console.log("HHmhmhmhmh",this.props.allRegionalSurfBreaks)
     return this.props.allRegionalSurfBreaks.map((eachValidSurfBreak)=>{
         return(
           <div key={eachValidSurfBreak._id}>
@@ -27,7 +27,7 @@ class County extends Component {
 
 
   render() {
-    console.log("the county props. . . . . . . .. ... . . . . . . . . ..  ", this.props)
+    // console.log("the county props. . . . . . . .. ... . . . . . . . . ..  ", this.props)
     
     if(this.props.theCounty && this.props.allRegionalSurfBreaks)
     return (

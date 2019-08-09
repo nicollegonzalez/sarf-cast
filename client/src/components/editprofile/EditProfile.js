@@ -28,7 +28,7 @@ class EditProfile extends Component {
       theFavoriteSurferInput: favoriteSurfer
          })
     .then( () => {
-      console.log("I AM INSIDE THE .then")
+      // console.log("I AM INSIDE THE .then")
         // this.props.getAllTheProjectsInAppJS(); //WTF is this
         // this.props.resetEditingSituation();
     })
@@ -46,7 +46,7 @@ class EditProfile extends Component {
   
 
   render(){
-    console.log("99999999999999999999999",this.props);
+    // console.log("99999999999999999999999",this.props);
     return(
       <form onSubmit = {this.handleFormSubmit}>
 

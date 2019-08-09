@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 class SurfBreak extends Component {
   
 
-  // MAYBE A FUNCTION HERE
+
   displayASingleSurfBreak = () =>{
-    console.table(this.props.allRegionalSurfBreaks);
-    console.log(this.props.allRegionalSurfBreaks);
+    // console.table(this.props.allRegionalSurfBreaks);
+    // console.log(this.props.allRegionalSurfBreaks);
   }
 
   render(){

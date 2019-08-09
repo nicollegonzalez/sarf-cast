@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import {Route, Link, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 //Auth Components
 import Signup from './components/signup/Signup.js';
 import Login from './components/login/Login.js';
@@ -67,7 +67,7 @@ class App extends React.Component {
 getCurrentlyLoggedInUser = () =>{
   this.service.currentUser()
   .then((theUser)=>{
-    console.log(theUser);
+    // console.log(theUser);
     this.setState({currentlyLoggedIn: theUser, ready: true})
 
   })
@@ -94,29 +94,29 @@ toggleForm = (whichForm) =>{
 
 
 getAllRegionalSurfBreaks = () => {
-  console.log("show me the county >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", this.state);
+  // console.log("show me the county >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", this.state);
   axios.get(`${process.env.REACT_APP_BASE}/region/${this.state.theCounty}`)
   .then((theRegionalSurfBreaks)=>{
-    console.log("*************", typeof(theRegionalSurfBreaks.data))
+    // console.log("*************", typeof(theRegionalSurfBreaks.data))
     
     if(typeof(theRegionalSurfBreaks.data) === "object") {
-      console.log("the if condition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ", typeof(theRegionalSurfBreaks.data), this.state)
+      // console.log("the if condition <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ", typeof(theRegionalSurfBreaks.data), this.state)
       this.setState({
         validSurfBreaks: theRegionalSurfBreaks.data,
         // ready: true,
       })
     } 
 
-    console.log(this.state.validSurfBreaks);
+    // console.log(this.state.validSurfBreaks);
   })
   .catch((err)=>{
-    console.log(err);
+    // console.log(err);
   })
 }
 
 
 dataFromChild = async (data) => {
-  console.log(data);
+  // console.log(data);
   let  theSelectedCounty= data;
 
   await this.setState({theCounty: theSelectedCounty})
@@ -139,7 +139,7 @@ render(){
 
 
 
-  console.log('This is my state :::::::::::::::::::::::::::::::::::::: ',this.state);
+  // console.log('This is my state',this.state);
 
 
     return (

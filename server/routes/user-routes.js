@@ -57,8 +57,8 @@ router.post('/signup', (req, res, next) => {
         });
   
         theNewUser.save(err => {
-            console.log('heres the user')
-            console.log(req.user)
+            // console.log('heres the user')
+            // console.log(req.user)
             if (err) {
                 res.status(400).json({ message: 'Saving user to database went wrong.' });
                 return;
@@ -105,7 +105,7 @@ router.post('/login', (req, res, next) => {
             }
 
             // We are now logged in (that's why we can also send req.user)
-            console.log('*****', req.user);
+            // console.log('*****', req.user);
             res.status(200).json(theUser);
         });
     })(req, res, next);

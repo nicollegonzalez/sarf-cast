@@ -79,7 +79,7 @@ router.get('/region/:region', (req, res, next) => {
     // console.log("Hellooooo",theCounty);
     let surfBreakIDsArr = [];
     surfBreakIDsArr = theCounty[0].surfBreakIDs;
-    console.log("IDs",surfBreakIDsArr);
+    // console.log("IDs",surfBreakIDsArr);
 
 
     SurfBreak.find()//.populate('forecast')
@@ -95,18 +95,18 @@ router.get('/region/:region', (req, res, next) => {
       })
       
       allRegionalSurfBreaks.forEach((eachReginalBreak)=>{
-       console.log("+-+-+-+-+-+-+-",eachReginalBreak.spot_id); 
+      //  console.log("+-+-+-+-+-+-+-",eachReginalBreak.spot_id); 
       })
       
 
-      console.log("all the regions >>>>>>>>>>>>>> ", allRegionalSurfBreaks);
+      // console.log("all the regions >>>>>>>>>>>>>> ", allRegionalSurfBreaks);
       
       // res.json({theCounty: theCounty})
       res.json(allRegionalSurfBreaks); // [{},{},{}]This the format I want sent to react app
       // res.json({theRegionalSurfBreaks: allRegionalSurfBreaks}) //{ "key": [{},{},{}]}
     })
     .catch((err)=>{
-      console.log("-=-=-=-=-=",err)
+      // console.log("-=-=-=-=-=",err)
       res.json(err);
     })
   })
