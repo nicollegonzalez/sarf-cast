@@ -171,15 +171,29 @@ render(){
       }
 
       {this.state.profileShowing && 
-        <Profile theUser = {this.state.currentlyLoggedIn}
+        <Profile 
+        theUser = {this.state.currentlyLoggedIn}
         toggleForm = {this.toggleForm}
         goHome = {this.goHome}
         ready = {this.state.ready}
+        currentlyLoggedIn = {this.state.currentlyLoggedIn}
         />
+
         // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
         // currentlyLoggedIn = {this.state.currentlyLoggedIn}
         // />
+        // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
+        // toggleForm = {this.toggleForm}
+        // currentlyLoggedIn = {this.state.currentlyLoggedIn}
+        // />
+      }
+
+{this.state.profileShowing && 
+        <EditProfile getUser = {this.getCurrentlyLoggedInUser}
+        toggleForm = {this.toggleForm}
+        currentlyLoggedIn = {this.state.currentlyLoggedIn}
+        />
         // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
         // toggleForm = {this.toggleForm}
         // currentlyLoggedIn = {this.state.currentlyLoggedIn}

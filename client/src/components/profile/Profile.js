@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EditProfile from '../profile/Profile'
 
 
 class Profile extends Component {
@@ -27,9 +28,18 @@ class Profile extends Component {
       const theUser = this.props.theUser;
       console.log("<><><><><><><><><",theUser);
         return(
-          <div>
-            <button onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+          <div className="container">
+            <div className="container">
+            <button className="btn btn-outline-info" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+            </div>
+
+            {/* <EditProfile 
+            currentlyLoggedIn = {this.props.currentlyLoggedIn}
+            /> */}
           </div>
+          
+
+
         )  
     }
     else {

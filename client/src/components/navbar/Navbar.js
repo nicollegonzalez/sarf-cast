@@ -34,9 +34,9 @@ return(
                 <li className="nav-item">
                     <NavLink to="/" className="nav-link" href="#">Home <span className="sr-only">(current)</span></NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <NavLink to="/" className="nav-link" href="#">Profile</NavLink>
-                </li>
+                </li> */}
             </ul>
         </div>
 
