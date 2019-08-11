@@ -24,35 +24,28 @@ router.get('/developer', bodyParser, (req, res, next) => {
      
       let updatedForcastObj = {};
       let allGetForecastAxiosArr = [];
-
       allSpotIdsArr.forEach((eachSpotId)=>{
         let urlStr = `http://api.spitcast.com/api/spot/forecast/${eachSpotId}/`
         allGetForecastAxiosArr.push(axios.get(urlStr));
       })
-
       axios.all(allGetForecastAxiosArr)
       .then((theArr)=>{
-
         // This is where I redefine my obj:updatedForcastObj
         theArr.forEach((eachUpdatedSpotForcastArr)=>{
           let theSpotId = eachUpdatedSpotForcastArr.data[0].spot_id;
           let theUpdatedSpotForecast = eachUpdatedSpotForcastArr.data
           updatedForcastObj[theSpotId] = theUpdatedSpotForecast;
         })
-
         //This is were I update each of my surfbreak forcast for the day
         allSpotIdsArr.forEach((eachSpotId)=>{
-
           let aNewForecastArr = updatedForcastObj[eachSpotId];
-
           SurfBreak.findOneAndUpdate({spot_id: eachSpotId},{forecast: aNewForecastArr})
           .then(()=>{
-            console.log("HOLY MOLLEY IT UPDATED CORRECTLY")
+            console.log("HOLY MOLEY IT UPDATED CORRECTLY")
           })
           .catch((err)=>{
             console.log("NOPE TRY AGAIN",err);
           })
-
         })
         res.json(updatedForcastObj);
 

@@ -14,10 +14,10 @@ class SurfBreak extends Component {
     return(
       <div className="container">
         <h1>Surf Break Forecast</h1>
-        <img src="/images/thewedge.jpg" alt="the wedge forecast chart" height="150" width="600"/>
+        
 
         <div className="container">
-        <img src="/images/thewedgemap.jpg" alt="the wedge map" height="600" width="400"/>
+        
         </div>
         
 
