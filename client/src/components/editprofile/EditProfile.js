@@ -160,7 +160,7 @@ class EditProfile extends Component {
   
           <div className="container buttons-div">
             <button className="btn btn-outline-danger" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
-            <button className="btn btn-outline-success" onClick = {()=>{this.deleteUser(theUser.username)}}>Update Forcast</button>
+            <button className="btn btn-outline-success" onClick = {()=>{this.props.updateSarfCast()}}>Update SarfCast</button>
           </div>
         </div>
         

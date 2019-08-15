@@ -101,6 +101,24 @@ toggleForm = (whichForm) =>{
   this.setState({[theForm]: !this.state[theForm]})
 }
 
+updateSarfCast = () => {
+  
+  axios.get(`${process.env.REACT_APP_BASE}/developer`)
+  .then((theUpdatedForecast)=>{
+   
+    if(typeof(theUpdatedForecast.data) === "object") {
+    
+      this.setState({
+        profileShowing: false,
+      
+      })
+    } 
+  })
+  .catch((err)=>{
+ 
+  })
+}
+
 
 getAllRegionalSurfBreaks = () => {
   // console.log("show me the county >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ", this.state);
@@ -203,6 +221,7 @@ render(){
           profileShowing = {this.state.profileShowing}
           currentlyLoggedIn = {this.state.currentlyLoggedIn}
           goHome ={this.goHome}
+          updateSarfCast = {this.updateSarfCast}
           />
 
 

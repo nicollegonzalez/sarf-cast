@@ -64,6 +64,7 @@ router.get('/developer', bodyParser, (req, res, next) => {
 
 // Region get route
 // GET route => to get all the surf spots in the choosen region
+
 router.get('/region/:region', (req, res, next) => {
   let theCountyName = req.params.region;
 
