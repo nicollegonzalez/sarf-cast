@@ -23,8 +23,10 @@ class Profile extends Component {
   
 
   render(){
-
+    console.log(this.props.ready);
+    console.log(this.props.currentlyLoggedIn);
     if(this.props.ready){
+      // if(this.props.currentlyLoggedIn){
       const theUser = this.props.theUser;
       console.log("<><><><><><><><><",theUser);
         return(
@@ -32,6 +34,21 @@ class Profile extends Component {
             <div className="container">
             <button className="btn btn-outline-info" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
             </div>
+
+            {/* <div>
+            <EditProfile
+              {...this.props}
+              // currentlyLoggedIn = {this.props.currentlyLoggedIn}
+            />
+          </div> */}
+
+          {/* <div>
+            <EditProfile
+            currentlyLoggedIn = {this.props.currentlyLoggedIn}
+            />
+          </div> */}
+           
+              
 
             {/* <EditProfile 
             currentlyLoggedIn = {this.props.currentlyLoggedIn}
@@ -42,10 +59,13 @@ class Profile extends Component {
 
         )  
     }
+
     else {
 
       return(<h1>Loading ...</h1>)
     }
+
+    
   }
 
 }

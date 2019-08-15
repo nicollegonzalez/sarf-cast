@@ -41,6 +41,7 @@ class App extends React.Component {
       theCounty: "",
       validSurfBreaks: [],
       // Passed down to SurfBreak Component
+      allSurfBreaks: [],
       theSurfBreak: "",
       //To handle loading
       ready: false,
@@ -79,6 +80,10 @@ getCurrentlyLoggedInUser = () =>{
     this.setState({currentlyLoggedIn: null})
   })
 }
+
+
+
+
 
 
 toggleForm = (whichForm) =>{
@@ -121,7 +126,7 @@ getAllRegionalSurfBreaks = () => {
 
 dataFromChild = async (data) => {
   // console.log(data);
-  let  theSelectedCounty= data;
+  let  theSelectedCounty = data;
 
   await this.setState({theCounty: theSelectedCounty})
 
@@ -170,13 +175,14 @@ render(){
         />
       }
 
-      {this.state.profileShowing && 
+      {/* {this.state.profileShowing && 
         <Profile 
         theUser = {this.state.currentlyLoggedIn}
         toggleForm = {this.toggleForm}
         goHome = {this.goHome}
         ready = {this.state.ready}
         currentlyLoggedIn = {this.state.currentlyLoggedIn}
+
         />
 
         // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
@@ -187,18 +193,31 @@ render(){
         // toggleForm = {this.toggleForm}
         // currentlyLoggedIn = {this.state.currentlyLoggedIn}
         // />
+      } */}
+
+      {this.state.profileShowing && 
+        <div className="container">
+          <EditProfile 
+          theUser = {this.state.currentlyLoggedIn}
+          toggleForm = {this.toggleForm}
+          currentlyLoggedIn = {this.state.currentlyLoggedIn}
+          goHome ={this.goHome}
+          />
+
+
+          {/* <div>
+          <button className="btn btn-outline-info" onClick = {()=>{this.deleteUser(this.state.currentlyLoggedIn.username)}}>Delete User Profile</button>
+          </div> */}
+
+         
+        </div>
+
+     
+        
+        
+
       }
 
-{this.state.profileShowing && 
-        <EditProfile getUser = {this.getCurrentlyLoggedInUser}
-        toggleForm = {this.toggleForm}
-        currentlyLoggedIn = {this.state.currentlyLoggedIn}
-        />
-        // <EditProfile getUser = {this.getCurrentlyLoggedInUser}
-        // toggleForm = {this.toggleForm}
-        // currentlyLoggedIn = {this.state.currentlyLoggedIn}
-        // />
-      }
 
 <Switch>
 
@@ -236,7 +255,8 @@ render(){
 
            />} 
           />
-
+ 
+         
         </Switch>
 
 

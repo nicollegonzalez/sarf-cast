@@ -7,7 +7,7 @@ class County extends Component {
 
   displayAllRegionalSurfBreaks () {
     // console.log("theeeeesee  are the props ----------- ", this.props);
-    // console.log("HHmhmhmhmh",this.props.allRegionalSurfBreaks)
+    console.log(this.props.allRegionalSurfBreaks)
     return this.props.allRegionalSurfBreaks.map((eachValidSurfBreak)=>{
         return(
           <div key={eachValidSurfBreak._id}>

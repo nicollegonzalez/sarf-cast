@@ -21,7 +21,7 @@ nav .nav-link:hover {
 nav .navbar-brand {
   color: #57DEFF;
   font-size: 2rem;
-  /* font-weight: bolder; */
+  font-weight: bolder;
   padding-left: 60px;
 }
 

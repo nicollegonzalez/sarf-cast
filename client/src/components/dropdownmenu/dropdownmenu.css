@@ -35,12 +35,12 @@ li.dd-list-item{
 }
 
 .dropdown-link{
-  /* color: #57DEFF; */
+
   color: rgb(79,158,171);
 }
 
 .dropdown-link:hover{
-  /* color: rgb(79,158,171); */
+
   color: #57DEFF;
 }
 

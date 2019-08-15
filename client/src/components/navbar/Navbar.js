@@ -10,6 +10,7 @@ import { faSignOutAlt, faUser, faUserPlus } from '@fortawesome/free-solid-svg-ic
 function Navbar(props){
 
     const logoutNow = () =>{
+        props.toggleForm('profile');
         props.userLogOut()
         .then(()=>{
             props.getUser();
@@ -18,11 +19,9 @@ function Navbar(props){
 
 
 return(
-    // <nav className="navbar navbar-expand navbar-dark bg-primary">
     <nav className="navbar navbar-expand navbar-custom bg-custom py-0">
         <NavLink to="/" className="navbar-brand" href="#">
             <img src="/images/sarfcastlogo.png" alt="sarfcast brand logo" height="42" width="42"/>
-            {/* <img src="/../client/build/index.html" alt="sarfcast brand logo" height="42" width="42"/> */}
             SarfCast
         </NavLink>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,19 +33,12 @@ return(
                 <li className="nav-item">
                     <NavLink to="/" className="nav-link" href="#">Home <span className="sr-only">(current)</span></NavLink>
                 </li>
-                {/* <li className="nav-item">
-                    <NavLink to="/" className="nav-link" href="#">Profile</NavLink>
-                </li> */}
+    
             </ul>
         </div>
 
         <div className="right-nav-links">
             <ul className="navbar-nav">
-            
-             {/*             
-            {props.theUser && 
-                <Link to="/region" style={{ textDecoration: 'none', margin: '10px' }}>Region</Link>
-             } */}
 
 
             {!props.theUser && 

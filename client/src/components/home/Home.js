@@ -7,23 +7,20 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      //ENTER STUFF HERE
     };
 
   }
 
-  // MAYBE A FUNCTION HERE
 
 
   render(){
-    // console.log("history---- ",this.props);
     
     return(
       <div className="home-component">
         <div>
 
 
-          <div>
+          <div clasName="drop-down">
             <DropDownMenu
               {...this.props}
               title="Select County"

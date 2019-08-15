@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../../services/AuthService';
+import './login.css';
 
 class Login extends Component {
   constructor(props){
@@ -31,23 +32,43 @@ class Login extends Component {
     return(
       <form onSubmit = {this.tryToLogin}>
 
+        <div className="container">
+
           <h3>Login</h3>
 
-          <legend>Username</legend>
-          <input value={this.state.usernameInput}
-            name="usernameInput"
-            onChange={this.handleChange}
-          />
+          <div className="login-container">
 
-          <legend>Password</legend>
-          <input value={this.state.passwordInput} 
-            name="passwordInput"
-            onChange={this.handleChange}
-          />
+            <div className="left-login">
+
+              <legend>Username</legend>
+              <input value={this.state.usernameInput}
+                name="usernameInput"
+                onChange={this.handleChange}
+              />
+
+              <legend>Password</legend>
+              <input value={this.state.passwordInput} 
+                name="passwordInput"
+                onChange={this.handleChange}
+              />
+
+            </div>
+            <div className="right-login">
+            
+              <input 
+              />
+            </div>
+
+            <button className="btn btn-outline-info">Submit</button>
+
+          </div>
 
 
 
-        <button>Submit</button>
+          
+
+        </div>
+
 
       </form>
     )

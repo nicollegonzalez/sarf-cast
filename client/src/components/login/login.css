@@ -1,15 +1,19 @@
-.signup-container{
+.login-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
-.signup-container .btn-custom{
+.login-container .btn-custom{
   border-color: black;
   color: black;
 }
 
-form{
-padding-top: 5vh;
+.right-login{
+  visibility: hidden;
 }
+
+form{
+  padding-top: 5vh;
+  }

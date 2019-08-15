@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import './editprofile.css'
 const axios = require('axios');
+
 
 
 class EditProfile extends Component {
@@ -28,9 +30,6 @@ class EditProfile extends Component {
       theFavoriteSurferInput: favoriteSurfer
          })
     .then( () => {
-      // console.log("I AM INSIDE THE .then")
-        // this.props.getAllTheProjectsInAppJS(); //WTF is this
-        // this.props.resetEditingSituation();
     })
     .catch( error => console.log(error) )
   }
@@ -41,16 +40,30 @@ class EditProfile extends Component {
     })
   }
 
+  deleteUser = (theUser) =>{
+    console.log("_+_+_+_+_",theUser);
+
+
+    axios.delete(`${process.env.REACT_APP_BASE}/auth/${theUser}`)
+    .then(()=>{
+        this.props.toggleForm('profile');
+        this.props.goHome();
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
 
 
   
 
   render(){
-    // console.log("99999999999999999999999",this.props);
+    const theUser = this.props.theUser;
     return(
+      <div>
       <form onSubmit = {this.handleFormSubmit}>
 
-          <div className="container">
+          <div >
             <h3>Edit Account</h3>
 
             <div className="signup-container">
@@ -86,21 +99,16 @@ class EditProfile extends Component {
 
                <button className="btn btn-outline-info">Submit</button>
             </div>
-
-            
-
-         
-
             
           </div> 
 
-          
-
-
-
-        
-
       </form>
+
+        <div className="container buttons-div">
+          <button className="btn btn-outline-danger" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+        </div>
+      </div>
+      
     )
   }
 }

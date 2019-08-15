@@ -69,7 +69,7 @@ router.get('/region/:region', (req, res, next) => {
 
   County.find({name: theCountyName})
   .then((theCounty)=>{
-    // console.log("Hellooooo",theCounty);
+    console.log("Hellooooo",theCounty);
     let surfBreakIDsArr = [];
     surfBreakIDsArr = theCounty[0].surfBreakIDs;
     // console.log("IDs",surfBreakIDsArr);
@@ -107,7 +107,46 @@ router.get('/region/:region', (req, res, next) => {
 
 // Region post route
 // Post route => to display all the surf spots in the choosen region
+router.get('/region/:region', (req, res, next) => {
+  let theCountyName = req.params.region;
 
+  County.find({name: theCountyName})
+  .then((theCounty)=>{
+    console.log("Hellooooo",theCounty);
+    let surfBreakIDsArr = [];
+    surfBreakIDsArr = theCounty[0].surfBreakIDs;
+    // console.log("IDs",surfBreakIDsArr);
+
+
+    SurfBreak.find()//.populate('forecast')
+    .then((allTheSurfBreaks)=>{
+      // console.log("Hello again:",theCounty);
+
+      let allRegionalSurfBreaks = allTheSurfBreaks;
+
+      
+      
+      allRegionalSurfBreaks = allRegionalSurfBreaks.filter((eachSurfBreak)=>{
+        return surfBreakIDsArr.includes(String(eachSurfBreak.spot_id)) //to string before it wasn'y working
+      })
+      
+      allRegionalSurfBreaks.forEach((eachReginalBreak)=>{
+      //  console.log("+-+-+-+-+-+-+-",eachReginalBreak.spot_id); 
+      })
+      
+
+      // console.log("all the regions >>>>>>>>>>>>>> ", allRegionalSurfBreaks);
+      
+      // res.json({theCounty: theCounty})
+      res.json(allRegionalSurfBreaks); // [{},{},{}]This the format I want sent to react app
+      // res.json({theRegionalSurfBreaks: allRegionalSurfBreaks}) //{ "key": [{},{},{}]}
+    })
+    .catch((err)=>{
+      // console.log("-=-=-=-=-=",err)
+      res.json(err);
+    })
+  })
+});
 
 
 module.exports = router;
