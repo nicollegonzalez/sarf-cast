@@ -30,8 +30,20 @@ class Profile extends Component {
       const theUser = this.props.theUser;
       console.log("<><><><><><><><><",theUser);
       if(this.props.theUser.username === "admin"){
-        
+        return(
+          <div className="container">
+            <div className="container">
+            <button className="btn btn-outline-info" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+            </div>
+            <div className="container">
+            <button className="btn btn-outline-info" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+            </div>
+
+    
+          </div>
+        )  
       }
+      else{
         return(
           <div className="container">
             <div className="container">
@@ -61,6 +73,8 @@ class Profile extends Component {
 
 
         )  
+      }
+        
     }
 
     else {

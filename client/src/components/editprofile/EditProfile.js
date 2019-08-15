@@ -59,57 +59,114 @@ class EditProfile extends Component {
 
   render(){
     const theUser = this.props.theUser;
-    return(
-      <div>
-      <form onSubmit = {this.handleFormSubmit}>
 
-          <div >
-            <h3>Edit Account</h3>
-
-            <div className="signup-container">
-              <div className="left-signup">
-                <legend>Riding Stance:</legend>
-                <input value={this.state.stanceInput}
-                  name="stanceInput"
-                  onChange={this.handleChange}
-                />
-
-              <legend>Local Surf Break:</legend>
-                <input value={this.state.favoriteSurfSpotInput}
-                  name="favoriteSurfSpotInput"
-                  onChange={this.handleChange}
-                />
-
-
+    if(theUser.username !== "admin"){
+      return(
+        <div>
+        <form onSubmit = {this.handleFormSubmit}>
+  
+            <div >
+              <h3>Edit Account</h3>
+  
+              <div className="signup-container">
+                <div className="left-signup">
+                  <legend>Riding Stance:</legend>
+                  <input value={this.state.stanceInput}
+                    name="stanceInput"
+                    onChange={this.handleChange}
+                  />
+  
+                <legend>Local Surf Break:</legend>
+                  <input value={this.state.favoriteSurfSpotInput}
+                    name="favoriteSurfSpotInput"
+                    onChange={this.handleChange}
+                  />
+  
+  
+                </div>
+  
+                <div className="right-signup">
+                  <legend>Board Shape:</legend>
+                  <input value={this.state.favoriteSurfSurfBoardShapeInput}
+                    name="favoriteSurfSurfBoardShapeInput"
+                    onChange={this.handleChange}
+                  />
+  
+                  <legend>Favorite Surfer:</legend>
+                  <input value={this.state.favoriteSurferInput}
+                    name="favoriteSurferInput"
+                    onChange={this.handleChange}
+                  />
+                </div>
+  
+                 <button className="btn btn-outline-info">Submit</button>
               </div>
-
-              <div className="right-signup">
-                <legend>Board Shape:</legend>
-                <input value={this.state.favoriteSurfSurfBoardShapeInput}
-                  name="favoriteSurfSurfBoardShapeInput"
-                  onChange={this.handleChange}
-                />
-
-                <legend>Favorite Surfer:</legend>
-                <input value={this.state.favoriteSurferInput}
-                  name="favoriteSurferInput"
-                  onChange={this.handleChange}
-                />
-              </div>
-
-               <button className="btn btn-outline-info">Submit</button>
-            </div>
-            
-          </div> 
-
-      </form>
-
-        <div className="container buttons-div">
-          <button className="btn btn-outline-danger" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+              
+            </div> 
+  
+        </form>
+  
+          <div className="container buttons-div">
+            <button className="btn btn-outline-danger" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+          </div>
         </div>
-      </div>
-      
-    )
+        
+      )
+    }else{
+      return(
+        <div>
+        <form onSubmit = {this.handleFormSubmit}>
+  
+            <div >
+              <h3>Edit Account</h3>
+  
+              <div className="signup-container">
+                <div className="left-signup">
+                  <legend>Riding Stance:</legend>
+                  <input value={this.state.stanceInput}
+                    name="stanceInput"
+                    onChange={this.handleChange}
+                  />
+  
+                <legend>Local Surf Break:</legend>
+                  <input value={this.state.favoriteSurfSpotInput}
+                    name="favoriteSurfSpotInput"
+                    onChange={this.handleChange}
+                  />
+  
+  
+                </div>
+  
+                <div className="right-signup">
+                  <legend>Board Shape:</legend>
+                  <input value={this.state.favoriteSurfSurfBoardShapeInput}
+                    name="favoriteSurfSurfBoardShapeInput"
+                    onChange={this.handleChange}
+                  />
+  
+                  <legend>Favorite Surfer:</legend>
+                  <input value={this.state.favoriteSurferInput}
+                    name="favoriteSurferInput"
+                    onChange={this.handleChange}
+                  />
+                </div>
+  
+                 <button className="btn btn-outline-info">Submit</button>
+              </div>
+              
+            </div> 
+  
+        </form>
+  
+          <div className="container buttons-div">
+            <button className="btn btn-outline-danger" onClick = {()=>{this.deleteUser(theUser.username)}}>Delete User Profile</button>
+            <button className="btn btn-outline-success" onClick = {()=>{this.deleteUser(theUser.username)}}>Update Forcast</button>
+          </div>
+        </div>
+        
+      )
+    }
+    
   }
 }
 

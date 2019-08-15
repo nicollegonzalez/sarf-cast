@@ -53,7 +53,7 @@ return(
             {props.theUser && 
             <span>
             
-            <button className="btn btn-custom ml-3 my-2" onClick = {()=> props.toggleForm('profile')} >{props.theUser.username}</button>
+            <button className="btn btn-custom ml-3 my-2" onClick = {()=> props.toggleForm('profile')} >Edit</button>
             <button className="btn btn-custom ml-3 my-2" onClick = {logoutNow} >Log Out <FontAwesomeIcon icon={faSignOutAlt}/></button>
 
 
