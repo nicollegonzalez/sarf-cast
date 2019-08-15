@@ -16,7 +16,7 @@ class Home extends Component {
   render(){
     
     return(
-      <div className="home-component">
+      <div className="home-component ">
         <div>
 
 
@@ -31,7 +31,7 @@ class Home extends Component {
           </div>
 
 
-          <div className="ocean">
+          <div className="ocean ">
             <div className="wave"></div>
             <div className="wave"></div>
           </div>

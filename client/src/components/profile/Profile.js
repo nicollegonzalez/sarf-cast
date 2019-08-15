@@ -29,6 +29,9 @@ class Profile extends Component {
       // if(this.props.currentlyLoggedIn){
       const theUser = this.props.theUser;
       console.log("<><><><><><><><><",theUser);
+      if(this.props.theUser.username === "admin"){
+        
+      }
         return(
           <div className="container">
             <div className="container">

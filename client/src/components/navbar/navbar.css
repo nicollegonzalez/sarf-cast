@@ -45,3 +45,7 @@ button.btn.btn-custom:hover {
   color: #57DEFF;
 }
 
+
+@media screen and (max-width: 550px){
+
+}

@@ -160,7 +160,7 @@ render(){
       userLogOut = {()=> this.service.logout()}
       toggleForm = {this.toggleForm}
       getUser = {this.getCurrentlyLoggedInUser}
-      
+      profileShowing = {this.state.profileShowing}
       />
 
       {this.state.signupShowing && 
@@ -200,6 +200,7 @@ render(){
           <EditProfile 
           theUser = {this.state.currentlyLoggedIn}
           toggleForm = {this.toggleForm}
+          profileShowing = {this.state.profileShowing}
           currentlyLoggedIn = {this.state.currentlyLoggedIn}
           goHome ={this.goHome}
           />

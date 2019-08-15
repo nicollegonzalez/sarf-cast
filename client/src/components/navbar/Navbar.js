@@ -10,7 +10,9 @@ import { faSignOutAlt, faUser, faUserPlus } from '@fortawesome/free-solid-svg-ic
 function Navbar(props){
 
     const logoutNow = () =>{
-        props.toggleForm('profile');
+        if(props.profileShowing){
+            props.toggleForm('profile');
+        }
         props.userLogOut()
         .then(()=>{
             props.getUser();
