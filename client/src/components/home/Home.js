@@ -20,7 +20,7 @@ class Home extends Component {
         <div>
 
 
-          <div clasName="drop-down">
+          <div className="drop-down">
             <DropDownMenu
               {...this.props}
               title="Select County"

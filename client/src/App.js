@@ -12,7 +12,7 @@ import Navbar from './components/navbar/Navbar.js'
 import Home from './components/home/Home'
 import County from './components/county/County'
 import SurfBreak from './components/surfbreak/SurfBreak'
-import Profile from './components/profile/Profile'
+// import Profile from './components/profile/Profile'
 import EditProfile from './components/editprofile/EditProfile'
 
 import axios from 'axios';
