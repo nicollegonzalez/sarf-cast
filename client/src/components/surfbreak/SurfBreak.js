@@ -24,8 +24,8 @@ class SurfBreak extends Component {
     let theSurfBreakWaveForecast = [];
     let maxHeight = 0;
     let chartLabels = ["12","1","2","3","4","5","6","7","8","9","10","11","12","1","2","3","4","5","6","7","8","9","10","11","12"];
-    console.log("allRegionalSurfBreaks:",allRegionalSurfBreaks);
-    console.log("surfBreakID",surfBreakID);
+    // console.log("allRegionalSurfBreaks:",allRegionalSurfBreaks);
+    // console.log("surfBreakID",surfBreakID);
 
     // console.log(theSurfBreak);
     // theSurfBreak = allRegionalSurfBreaks.filter((eachSurfBreak)=>{
@@ -50,9 +50,12 @@ class SurfBreak extends Component {
       // console.log(eachHourForecast.size);
       // console.log(typeof eachHourForecast.size);
       theSurfBreakWaveForecast.push(eachHourForecast.size)
-      forecastDate = eachHourForecast.date;
+    
       if(maxHeight < eachHourForecast.size){
         maxHeight = eachHourForecast.size
+      }
+      if(forecastDate === ""){
+        forecastDate = eachHourForecast.date
       }
 
     })
