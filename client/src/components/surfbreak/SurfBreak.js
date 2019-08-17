@@ -98,6 +98,14 @@ class SurfBreak extends Component {
           }
           width="600" 
           height="250"/>
+
+        <LineChart 
+         data={chartData}
+          options={
+            chartData.options
+          }
+          width="600" 
+          height="250"/>  
       
 
       </div> 
