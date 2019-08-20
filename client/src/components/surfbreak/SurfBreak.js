@@ -61,6 +61,8 @@ class SurfBreak extends Component {
     })
     // console.log(theSurfBreakWaveForecast);
     // console.log(forecastDate);
+    let date = forecastDate;
+  
     let chartHeight = maxHeight * 1.2;
 
  
